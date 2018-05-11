@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "sourceMap": true,
+    "typeRoots": ["../../node_modules/@types"],
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["../../node_modules", "build", "src/**/*.test.ts", "src/**/*.test.tsx"]
+}
