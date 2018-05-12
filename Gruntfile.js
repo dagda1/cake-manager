@@ -1,6 +1,4 @@
-const packages = [
-  'packages/api/Gruntfile.js',
-];
+const packages = ['packages/api/Gruntfile.js', 'packages/frontend/Gruntfile.js'];
 
 module.exports = function(grunt) {
   'use strict';

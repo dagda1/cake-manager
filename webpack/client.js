@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader');
-const { prepareUrls } = require('react-dev-utils/WebpackDevServerUtils');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const postcssOptions = require('./postcssOptions');
 const getLocalIdent = require('./getLocalIdent');
@@ -15,28 +14,10 @@ const { configureCommon, getEnvironment } = require('./common');
 const reStyle = /\.(css|scss)$/;
 const reImage = /\.(bmp|gif|jpe?g|png|svg)$/;
 
-function getUrlParts() {
-  const port = parseInt(process.env.PORT, 10) || 3000;
-  const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
-  const host = process.env.HOST || '0.0.0.0';
-  const urls = prepareUrls(protocol, host, port);
-
-  return {
-    port,
-    protocol,
-    host,
-    urls
-  };
-}
-
 const configure = options => {
-  const { entryPoint, publicDir, proxy, devServer } = options;
-  const { protocol, host, port } = getUrlParts();
+  const { entryPoint, publicDir, proxy } = options;
 
   options.isNode = false;
-
-  const { isStaticBuild } = options;
-  const ssrBuild = !isStaticBuild;
 
   const { isDevelopment, isProduction } = getEnvironment();
 
@@ -52,21 +33,6 @@ const configure = options => {
         ]
       : [entryPoint],
     devtool: isDevelopment && 'cheap-module-source-map',
-    devServer: devServer
-      ? {
-          inline: true,
-          port,
-          disableHostCheck: true,
-          contentBase: publicDir || path.resolve('public'),
-          hot: true,
-          publicPath: '/',
-          watchOptions: { ignored: /node_modules/ },
-          historyApiFallback: { disableDotRule: true },
-          https: protocol === 'https',
-          host,
-          proxy
-        }
-      : {},
     output: {
       filename: `static/js/[name].[${isProduction ? 'chunkhash' : 'hash'}:8].js`,
       chunkFilename: `static/js/[name].[${isProduction ? 'chunkhash' : 'hash'}:8].chunk.js`,
@@ -148,32 +114,14 @@ const configure = options => {
           },
           sourceMap: false
         }),
-      ssrBuild && new ExtractCssChunks(isDevelopment ? undefined : 'static/css/[name].[contenthash].css'),
-      ssrBuild &&
-        new webpack.optimize.CommonsChunkPlugin({
-          names: ['bootstrap'], // needed to put webpack bootstrap code before chunks
-          filename: 'static/js/[name].js',
-          minChunks: Infinity
-        }),
+      new ExtractCssChunks(isDevelopment ? undefined : 'static/css/[name].[contenthash].css'),
+      new webpack.optimize.CommonsChunkPlugin({
+        names: ['bootstrap'], // needed to put webpack bootstrap code before chunks
+        filename: 'static/js/[name].js',
+        minChunks: Infinity
+      }),
       isDevelopment && new webpack.HotModuleReplacementPlugin(),
-      isProduction && ssrBuild && new StatsWebpackPlugin('stats.json'),
-      devServer &&
-        new HtmlWebpackPlugin({
-          inject: true,
-          template: publicDir ? path.join(publicDir, 'index.html') : 'public/index.html',
-          isProduction: isProduction && {
-            removeComments: true,
-            collapseWhitespace: true,
-            removeRedundantAttributes: true,
-            useShortDoctype: true,
-            removeEmptyAttributes: true,
-            removeStyleLinkTypeAttributes: true,
-            keepClosingSlash: true,
-            minifyJS: true,
-            minifyCSS: true,
-            minifyURLs: true
-          }
-        })
+      isProduction && new StatsWebpackPlugin('stats.json')
     ]),
     // Some libraries import Node modules but don't use them in the browser.
     // Tell Webpack to provide empty mocks for them so importing them works.
@@ -189,4 +137,4 @@ const configure = options => {
   return config;
 };
 
-module.exports = { configure, getUrlParts };
+module.exports = { configure };

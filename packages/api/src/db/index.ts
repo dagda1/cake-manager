@@ -1,7 +1,8 @@
 import { Promise as SPromise } from 'sequelize';
 import { Sequelize } from 'sequelize-typescript';
-import { Cake, CakeProps } from '../models/cake';
+import { Cake } from '../models/cake';
 import { InitialiseUrl } from '../config';
+import { CakeProps } from '../../../../types';
 
 class DB {
   sequelize: Sequelize;

@@ -13,5 +13,6 @@
     "typeRoots": ["./node_modules/@types"],
     "strictFunctionTypes": false,
     "suppressImplicitAnyIndexErrors": true
-  }
+  },
+  "files": ["./types/index.d.ts"]
 }

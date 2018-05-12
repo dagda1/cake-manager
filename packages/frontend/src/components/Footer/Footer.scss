@@ -1,0 +1,8 @@
+@import '../../assets/scss/main';
+
+.placeholder {
+  text-align: center;
+  @include py(4);
+
+  border-top: 1px solid $border-color;
+}

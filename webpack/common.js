@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const getLocalIdent = require('./getLocalIdent');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { CheckerPlugin } = require('awesome-typescript-loader');
-const { filter } = require('lodash');
+const { filter, merge } = require('lodash');
 
 const getEnvironment = () => {
   const isDevelopment = process.env.NODE_ENV !== 'production';
@@ -22,14 +22,9 @@ const getEnvironment = () => {
   };
 };
 
-const { merge } = require('lodash');
-
 const configureCommon = options => {
   const typescriptOptions = options.typescriptOptions || {};
   const isNode = !!options.isNode;
-
-  const { isStaticBuild } = options;
-  const ssrBuild = !isStaticBuild;
 
   const { isDevelopment, isProduction, staticAssetName, isAnalyse, isDebug } = getEnvironment();
 

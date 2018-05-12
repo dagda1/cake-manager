@@ -7,6 +7,7 @@ import { Request, Response, NextFunction } from 'express';
 import { log } from 'winston';
 import { db } from './db';
 import { Router } from './routes';
+import { Port } from './config';
 
 const app = express();
 
@@ -16,6 +17,7 @@ for (const route of Router) {
 }
 
 app.use(helmet());
+
 log('info', 'Configuring api...');
 
 app.use(function(err: Error, req: Request, res: Response, next: NextFunction) {
@@ -30,13 +32,15 @@ app.use(function(req, res, next) {
   res.status(404);
 });
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || Port);
 
 /* istanbul ignore next */
 if (!module.parent) {
   app.listen(app.get('port'), async () => {
     log('info', `Server listening on port ${app.get('port')}...`);
+
     await db.initialise();
+
     log('info', 'db initialised....we....are....ready');
   });
 }

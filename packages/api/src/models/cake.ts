@@ -1,10 +1,5 @@
 import { Model, Table, PrimaryKey, AutoIncrement, Column } from 'sequelize-typescript';
-
-export interface CakeProps {
-  title: string;
-  desc: string;
-  image: string;
-}
+import { CakeProps } from '../../../../types';
 
 @Table
 export class Cake extends Model<Cake> implements CakeProps {

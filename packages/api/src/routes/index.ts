@@ -9,6 +9,6 @@ interface Router {
 export const Router: Router[] = [
   {
     handler: CakesRoute,
-    path: '/'
+    path: '/cakes'
   }
 ];
