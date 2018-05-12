@@ -1,6 +1,6 @@
 {
   "name": "cake-manager-api",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Cake Manager API",
   "main": "index.js",
   "author": "Paul Cowan (dagda1@scotalt.net)",
@@ -12,7 +12,12 @@
   },
   "dependencies": {
     "express": "^4.16.3",
+    "express-router": "^0.0.1",
     "helmet": "^3.12.0",
+    "reflect-metadata": "^0.1.12",
+    "sequelize": "^4.37.7",
+    "sequelize-typescript": "^0.6.4",
+    "sqlite3": "^4.0.0",
     "winston": "^2.4.2"
   },
   "devDependencies": {

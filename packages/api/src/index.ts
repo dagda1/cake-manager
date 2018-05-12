@@ -1,21 +1,42 @@
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 import * as express from 'express';
 import * as helmet from 'helmet';
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { log } from 'winston';
+import { db } from './db';
+import { Router } from './routes';
 
 const app = express();
 
-app.get('/', (req: Request, res: Response) => {
-  res.json({ result: 'hello' });
-});
+// create routes
+for (const route of Router) {
+  app.use(route.path, route.handler);
+}
 
 app.use(helmet());
+log('info', 'Configuring api...');
 
-log('info', 'Configuring server engine...');
+app.use(function(err: Error, req: Request, res: Response, next: NextFunction) {
+  if (!module.parent) {
+    err.stack && log('error', err.stack);
+  }
 
-app.set('view engine', 'ejs');
+  res.status(500).json({ error: 'Internal Error' });
+});
+
+app.use(function(req, res, next) {
+  res.status(404);
+});
+
 app.set('port', process.env.PORT || 3000);
 
-app.listen(app.get('port'), () => {
-  log('info', `Server listening on port ${app.get('port')}...`);
-});
+/* istanbul ignore next */
+if (!module.parent) {
+  app.listen(app.get('port'), async () => {
+    log('info', `Server listening on port ${app.get('port')}...`);
+    await db.initialise();
+    log('info', 'db initialised....we....are....ready');
+  });
+}
