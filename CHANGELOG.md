@@ -31,3 +31,7 @@
 - [2f96a75](https://github.com/dagda1/cake-manager/commit/2f96a7575f7a4f13ff6be7f90028eb2997d7ce78)
 - Preload redux store with data
 - start rendering cakes
+
+## [v0.56.0]
+- [23d61af](https://github.com/dagda1/cake-manager/commit/23d61af39c8646a3e2eeaaa8456e3b9cba3af550)
+- Ensure only unique cakes are inserted

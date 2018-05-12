@@ -3,6 +3,7 @@ import { Sequelize } from 'sequelize-typescript';
 import { Cake } from '../models/cake';
 import { InitialiseUrl } from '../config';
 import { CakeProps } from '../../../../types';
+import { uniqWith, isEqual } from 'lodash';
 
 class DB {
   sequelize: Sequelize;
@@ -24,7 +25,9 @@ class DB {
 
     const cakes: CakeProps[] = await response.json();
 
-    await SPromise.each(cakes, cake => Cake.create<Cake>(cake));
+    const uniqueCakes = uniqWith(cakes, isEqual);
+
+    await SPromise.each(uniqueCakes, cake => Cake.create<Cake>(cake));
   }
 }
 
