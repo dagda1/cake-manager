@@ -1,27 +1,25 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import reducers from '../reducers';
+import { createStore, applyMiddleware, compose, Store } from 'redux';
+import reducers, { State } from '../reducers';
 import '../../../../types';
 import '../types';
+import { createLogger } from 'redux-logger';
 
 declare var module: any;
 
-const configureStore = (initialState: Object) => {
+const configureStore = (initialState: Object): Store<State> => {
   const middlewares: any[] = [];
   const enhancers = middlewares.map(a => applyMiddleware(a));
+  const logger = createLogger({});
 
-  const getComposeFunc = () => {
-    if (process.env.BROWSER && __DEV__) {
-      const { composeWithDevTools } = require('redux-devtools-extension');
-      return composeWithDevTools;
+  if (process.env.NODE_ENV !== 'production') {
+    middlewares.push(logger);
+
+    if (typeof window === 'object' && (window as any).__REDUX_DEVTOOLS_EXTENSION__) {
+      enhancers.push((window as any).__REDUX_DEVTOOLS_EXTENSION__());
     }
+  }
 
-    return compose;
-  };
-
-  const composeFunc = getComposeFunc();
-  const composedEnhancers = composeFunc.apply(null, enhancers);
-
-  const store = createStore(reducers, initialState, composedEnhancers);
+  const store = createStore(reducers, initialState, compose(...enhancers));
 
   if (__DEV__ && module.hot) {
     module.hot.accept('../reducers', () => {

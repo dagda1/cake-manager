@@ -5,6 +5,7 @@ import flushChunks from 'webpack-flush-chunks';
 import { Request, Response } from 'express';
 import { App } from '../containers/App';
 import configureStore from '../store';
+import { getCakes } from '../services/cakes';
 
 const { flushChunkNames } = require('react-universal-component/server');
 
@@ -21,7 +22,9 @@ export default ({ clientStats }: { clientStats: any }) => async (req: Request, r
 
   const { js, styles, cssHash } = flushChunks(clientStats, { chunkNames });
 
-  const preloadedState = { cakes: [] };
+  const cakes = await getCakes();
+
+  const preloadedState = { cakes };
 
   const store = configureStore(preloadedState);
 

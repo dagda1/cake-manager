@@ -1,0 +1,16 @@
+@import '../../assets/scss/main';
+
+.container {
+  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $cake-border-color;
+  border-image: initial;
+  overflow: auto;
+  transition: all 0.2s ease;
+  padding: 20px;
+  margin-right: 40px;
+  width: 100%;
+  height: 270px;
+  $color: $main-color;
+}

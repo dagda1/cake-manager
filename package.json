@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@cutting/cake-manager",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Cake Manager Yarn Workspace",
   "repository": "https://github.com/dagda1/cake-manager.git",
   "author": "Paul Cowan <dagda1@scotalt.net>",

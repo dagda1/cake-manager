@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import { Store } from 'redux';
 import { ApplicationLayout } from '../../layouts/ApplicationLayout';
+import { Cakes } from '../Cakes';
 
 export interface AppProps {
   store: Store;
@@ -10,11 +11,13 @@ export interface AppProps {
 
 export class App extends React.Component<AppProps> {
   render() {
-    const { store, children } = this.props;
+    const { store } = this.props;
 
     return (
       <Provider store={store}>
-        <ApplicationLayout>{children}</ApplicationLayout>
+        <ApplicationLayout>
+          <Cakes />
+        </ApplicationLayout>
       </Provider>
     );
   }
