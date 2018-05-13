@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@cutting/cake-manager",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Cake Manager Yarn Workspace",
   "repository": "https://github.com/dagda1/cake-manager.git",
   "author": "Paul Cowan <dagda1@scotalt.net>",
@@ -23,7 +23,7 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.0.1",
     "grunt-env": "^0.4.4",
-    "grunt-hub": "^0.7.0",
+    "grunt-hub": "^0.8.0",
     "grunt-nodemon": "^0.4.2",
     "grunt-ts": "^6.0.0-beta.19",
     "grunt-webpack": "^3.0.2",

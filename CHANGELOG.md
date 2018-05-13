@@ -39,8 +39,9 @@
 ## [v0.7.0]
 - [fe2742c](https://github.com/dagda1/cake-manager/commit/fe2742c7cb1c5e834ff59baaf2ee729691636836****)
 - Import and use my own Modal from [@cutting/component-library](https://github.com/dagda1/cuttingedge/blob/master/packages/component-library/src/components/molecules/modal/index.tsx)
-- Add [@cutting/connected-components](https://github.com/dagda1/cuttingedge/tree/master/packages/connected-components) which has helpers for the upcoming redux-form for adding a cake
+- Add [@cutting/connected-components](https://github.com/dagda1/cuttingedge/tree/master/packages/connected-components) which has helpers for redux-form which I will use for adding a cake
 - Add it to the main Cakes view
 
 ## [v0.8.0]
 - []()
+- Hookup cakes form using redux-form, ready to post data to API.

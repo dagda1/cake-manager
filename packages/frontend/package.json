@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "frontend react code",
   "main": "index.js",
   "author": "Paul Cowan <dagda1@scotalt.net>",
@@ -19,8 +19,10 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
     "react-universal-component": "^2.9.0",
     "redux": "^4.0.0",
+    "reselect": "^3.0.1",
     "serialize-javascript": "^1.5.0"
   },
   "devDependencies": {
@@ -28,6 +30,7 @@
     "@types/react": "^16.3.14",
     "@types/react-dom": "^16.0.5",
     "@types/react-redux": "^6.0.0",
+    "@types/redux-form": "^7.2.5",
     "@types/redux-logger": "^3.0.6",
     "@types/serialize-javascript": "^1.3.2",
     "autoprefixer": "^8.4.1",

@@ -1,6 +1,7 @@
 import { combineReducers, Action } from 'redux';
 import reducerBuilder from './builder';
 import { CakeProps } from '../../../../types';
+import { reducer as form } from 'redux-form';
 
 export enum CakeActionTypes {
   SetCakes = 'SET_CAKES'
@@ -32,5 +33,6 @@ const cakesReducer = reducerBuilder(initialState).build({
 });
 
 export default combineReducers({
-  cakes: cakesReducer
+  cakes: cakesReducer,
+  form
 });

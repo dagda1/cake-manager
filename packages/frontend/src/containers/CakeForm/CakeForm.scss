@@ -1,0 +1,49 @@
+@import '../../assets/scss/main';
+
+$form-element-height: 42px;
+
+@mixin form-control {
+  height: $form-element-height;
+  width: 100%;
+  padding: 6px 12px;
+}
+
+:global .form-group {
+  @include mb(2);
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  form,
+  button {
+    @include mt(4);
+  }
+
+  button:first-of-type {
+    background: $secondary-button-bg;
+    color: $secondary-button-color;
+    @include mr(2);
+    border: 1px solid $error-red;
+  }
+
+  input[type='text'],
+  input[type='number'],
+  input[type='password'] {
+    @include form-control;
+  }
+
+  label {
+    @include mb(1);
+    display: block;
+    color: $label-default-color !important;
+
+    @include mq-m {
+      @include mq(2);
+    }
+  }
+}
+
+.button__container {
+  display: flex;
+}

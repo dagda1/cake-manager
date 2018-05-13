@@ -10,8 +10,19 @@
   display: flex;
 }
 
+:global .modal__heading {
+  align-items: center;
+}
+
+:global .modal__heading button {
+  position: static;
+  @include ml(4);
+  height: 64px;
+}
+
 .modal__body {
   background: $modal-bg;
   color: $modal-color;
   flex: 1;
+  display: flex;
 }

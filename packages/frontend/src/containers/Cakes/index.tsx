@@ -5,6 +5,7 @@ import { State } from '../../reducers';
 import { Layout, GelItem } from '@cutting/react-gel';
 import { Button, Modal } from '@cutting/component-library';
 import { Cake } from '../../components/Cake';
+import { CakeForm } from '../CakeForm';
 
 const styles = require('./Cakes.scss');
 
@@ -35,6 +36,10 @@ export class CakesContainerView extends React.Component<CakesContainerProps, Cak
 
   openModal = () => this.setModalOpenState(true);
 
+  closeModal = () => {
+    this.setModalOpenState(false);
+  };
+
   render() {
     const { cakes } = this.props;
     const { modalOpen } = this.state;
@@ -48,7 +53,9 @@ export class CakesContainerView extends React.Component<CakesContainerProps, Cak
           openHandler={this.setModalOpenState}
           open={modalOpen}
         >
-          <div className={styles.modal__body}>Form Will Go Here</div>
+          <div className={styles.modal__body}>
+            <CakeForm cancelHandler={this.closeModal} />
+          </div>
         </Modal>
         <Layout className={styles.container}>
           <GelItem>
