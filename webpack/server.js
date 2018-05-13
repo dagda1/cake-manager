@@ -30,7 +30,9 @@ const configure = (options = {}) => {
         /\.(eot|woff|woff2|ttf|otf)$/,
         /\.(svg|png|jpg|jpeg|gif|ico)$/,
         /\.(mp4|mp3|ogg|swf|webp)$/,
-        /\.(css|scss|sass|sss|less)$/
+        /\.(css|scss|sass|sss|less)$/,
+        /cutting/,
+        /component library/
       ].filter(x => x)
     });
 

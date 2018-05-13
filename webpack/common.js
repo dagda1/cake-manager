@@ -71,18 +71,6 @@ const configureCommon = options => {
           exclude: /node_modules/,
           loader: 'awesome-typescript-loader',
           options: merge({ useBabel: false, useCache: false }, typescriptOptions)
-        },
-        {
-          test: /\.md$/,
-          use: [
-            {
-              loader: 'html-loader'
-            },
-            {
-              loader: 'markdown-loader',
-              options: {}
-            }
-          ]
         }
       ])
     },
