@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "frontend react code",
   "main": "index.js",
   "author": "Paul Cowan <dagda1@scotalt.net>",
@@ -10,8 +10,8 @@
     "build": "NODE_ENV=production grunt build"
   },
   "dependencies": {
-    "@cutting/component-library": "^0.7.0",
-    "@cutting/connected-components": "^0.7.0",
+    "@cutting/component-library": "^0.8.0",
+    "@cutting/connected-components": "^0.8.0",
     "@cutting/react-gel": "^0.1.0",
     "@cutting/util": "^0.1.0",
     "classnames": "^2.2.5",

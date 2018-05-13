@@ -25,13 +25,22 @@
 - I have added a few of my own oss packages:
 - [@cutting/component-library](https://github.com/dagda1/cuttingedge/tree/master/packages/component-library)
 - [@cutting/react-gel](https://github.com/dagda1/cuttingedge/tree/master/packages/react-gel)
-- the latter is a grid system and some sass helpers.
+- the latter is a responsive grid system and some sass helpers.
 
 ## [v0.5.0]
 - [2f96a75](https://github.com/dagda1/cake-manager/commit/2f96a7575f7a4f13ff6be7f90028eb2997d7ce78)
-- Preload redux store with data
+- Preload redux store with data on the server.  No need for async call when page loads
 - start rendering cakes
 
-## [v0.56.0]
+## [v0.6.0]
 - [23d61af](https://github.com/dagda1/cake-manager/commit/23d61af39c8646a3e2eeaaa8456e3b9cba3af550)
 - Ensure only unique cakes are inserted
+
+## [v0.7.0]
+- [fe2742c](https://github.com/dagda1/cake-manager/commit/fe2742c7cb1c5e834ff59baaf2ee729691636836****)
+- Import and use my own Modal from [@cutting/component-library](https://github.com/dagda1/cuttingedge/blob/master/packages/component-library/src/components/molecules/modal/index.tsx)
+- Add [@cutting/connected-components](https://github.com/dagda1/cuttingedge/tree/master/packages/connected-components) which has helpers for the upcoming redux-form for adding a cake
+- Add it to the main Cakes view
+
+## [v0.8.0]
+- []()

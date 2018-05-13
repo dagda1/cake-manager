@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Layout, GelItem } from '@cutting/react-gel';
+import { Layout, GelItem, Wrap } from '@cutting/react-gel';
 import { Heading } from '@cutting/component-library';
 import * as cs from 'classnames';
 import { Header } from '../../components/Header';
@@ -13,9 +13,9 @@ export interface ApplicationLayoutProps {
 const styles = require('./ApplicationLayout.scss');
 
 export const ApplicationLayout: React.SFC<ApplicationLayoutProps> = ({ heading, italicise, children }) => (
-  <>
+  <Wrap>
     <Header />
-    <main role="main" className={cs('wrapper', styles.container)}>
+    <main role="main" className={styles.container}>
       {heading && (
         <Layout>
           <GelItem>
@@ -26,5 +26,5 @@ export const ApplicationLayout: React.SFC<ApplicationLayoutProps> = ({ heading, 
       <>{children}</>
     </main>
     <Footer />
-  </>
+  </Wrap>
 );

@@ -1,0 +1,17 @@
+@import '../../assets/scss/main';
+
+.container {
+  button {
+    @include mb(3);
+  }
+}
+
+:global .modal__body {
+  display: flex;
+}
+
+.modal__body {
+  background: $modal-bg;
+  color: $modal-color;
+  flex: 1;
+}

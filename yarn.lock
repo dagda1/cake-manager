@@ -2,17 +2,17 @@
 # yarn lockfile v1
 
 
-"@cutting/component-library@0.7.0", "@cutting/component-library@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.npmjs.org/@cutting/component-library/-/component-library-0.7.0.tgz#cab9732c4db88e77a4a6660bb8ca30b475cd4002"
+"@cutting/component-library@0.8.0", "@cutting/component-library@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.npmjs.org/@cutting/component-library/-/component-library-0.8.0.tgz#048bbd64e335c425c84841f8c22d3a74901ca16d"
   dependencies:
     "@cutting/react-gel" "0.1.0"
 
-"@cutting/connected-components@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.npmjs.org/@cutting/connected-components/-/connected-components-0.7.0.tgz#e498a2752f2663cd071b58ff8b3895c14e74cb98"
+"@cutting/connected-components@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.npmjs.org/@cutting/connected-components/-/connected-components-0.8.0.tgz#fff986540c530086f164486651c7cbeb5862d329"
   dependencies:
-    "@cutting/component-library" "0.7.0"
+    "@cutting/component-library" "0.8.0"
     redux-form "^7.3.0"
 
 "@cutting/react-gel@0.1.0", "@cutting/react-gel@^0.1.0":
@@ -5732,8 +5732,8 @@ source-map-support@^0.4.2:
     source-map "^0.5.6"
 
 source-map-support@^0.5.3:
-  version "0.5.5"
-  resolved "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.5.tgz#0d4af9e00493e855402e8ec36ebed2d266fceb90"
+  version "0.5.6"
+  resolved "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.6.tgz#4435cee46b1aab62b8e8610ce60f788091c51c13"
   dependencies:
     buffer-from "^1.0.0"
     source-map "^0.6.0"
@@ -6222,8 +6222,8 @@ ua-parser-js@^0.7.9:
   resolved "https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.7.18.tgz#a7bfd92f56edfb117083b69e31d2aa8882d4b1ed"
 
 uglify-js@3.3.x:
-  version "3.3.24"
-  resolved "https://registry.npmjs.org/uglify-js/-/uglify-js-3.3.24.tgz#abeae7690c602ebd006f4567387a0c0c333bdc0d"
+  version "3.3.25"
+  resolved "https://registry.npmjs.org/uglify-js/-/uglify-js-3.3.25.tgz#3266ccb87c5bea229f69041a0296010d6477d539"
   dependencies:
     commander "~2.15.0"
     source-map "~0.6.1"

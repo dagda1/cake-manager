@@ -37,7 +37,7 @@ export default ({ clientStats }: { clientStats: any }) => async (req: Request, r
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta charSet="utf-8" />
-        <title>Cakes r Us</title>
+        <title>Cakes R Us</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
           ${styles}
       </head>
