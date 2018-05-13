@@ -43,5 +43,8 @@
 - Add it to the main Cakes view
 
 ## [v0.8.0]
-- []()
+- [d319441](https://github.com/dagda1/cake-manager/commit/d3194411e6985513f6f0ef30cf118946bfe13637)
 - Hookup cakes form using redux-form, ready to post data to API.
+## [v0.9.9]
+- [04f4f9b](https://github.com/dagda1/cake-manager/commit/04f4f9bb2cba84a6b3e1f7a94aed0d340f039c11)
+- install and configure http-proxy-middleware to proxy all non text/html requests to the api

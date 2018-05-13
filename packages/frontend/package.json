@@ -16,6 +16,7 @@
     "@cutting/util": "^0.1.0",
     "classnames": "^2.2.5",
     "handler-builder": "^1.1.0",
+    "http-proxy-middleware": "^0.18.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.3",
+    "@types/http-proxy-middleware": "^0.17.4",
     "@types/react": "^16.3.14",
     "@types/react-dom": "^16.0.5",
     "@types/react-redux": "^6.0.0",

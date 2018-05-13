@@ -2,8 +2,9 @@ import * as express from 'express';
 import { join } from 'path';
 import { log } from 'winston';
 import * as path from 'path';
-import { Port } from './config';
-import { Request, Response } from 'express';
+import { Port, ApiHost } from './config';
+import * as http from 'http';
+import * as proxy from 'http-proxy-middleware';
 
 const configureDevelopment = (app: any) => {
   const clientConfig = require('../../../webpack/client').configure({
@@ -22,6 +23,7 @@ const configureDevelopment = (app: any) => {
   const clientCompiler = multiCompiler.compilers.find((compiler: any) => compiler.name === 'client');
 
   app.use(require('webpack-dev-middleware')(multiCompiler, { serverSideRender: true }));
+
   app.use(require('webpack-hot-middleware')(clientCompiler));
 
   app.use(publicPath, express.static(outputPath));
@@ -48,17 +50,27 @@ const configureProduction = (app: any) => {
 
 const app = express();
 
-app.post('POST', (req: Request, res: Response) => {
-  console.log('--------------------');
-  console.log(req.body);
-  console.log('--------------------');
-});
+// set up proxying for all requests that are not text/html that should meet the requirements
+// for the test
+const filter = (pathname: string, req: http.IncomingMessage) => {
+  return !!(req.headers.accept && req.headers.accept.indexOf('application/json') > -1);
+};
+
+const apiProxy = proxy(filter, { target: ApiHost, secure: false });
+
+app.use('/', apiProxy);
 
 if (process.env.NODE_ENV === 'development') {
   configureDevelopment(app);
 } else {
   configureProduction(app);
 }
+
+process.on('unhandledRejection', error => {
+  log('error', '------------------------------');
+  log('error', error.message);
+  log('error', '------------------------------');
+});
 
 log('info', 'Configuring server engine...');
 app.set('view engine', 'ejs');
