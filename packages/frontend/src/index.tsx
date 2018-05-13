@@ -3,6 +3,7 @@ import { join } from 'path';
 import { log } from 'winston';
 import * as path from 'path';
 import { Port } from './config';
+import { Request, Response } from 'express';
 
 const configureDevelopment = (app: any) => {
   const clientConfig = require('../../../webpack/client').configure({
@@ -46,6 +47,12 @@ const configureProduction = (app: any) => {
 };
 
 const app = express();
+
+app.post('POST', (req: Request, res: Response) => {
+  console.log('--------------------');
+  console.log(req.body);
+  console.log('--------------------');
+});
 
 if (process.env.NODE_ENV === 'development') {
   configureDevelopment(app);

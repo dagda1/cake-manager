@@ -3,11 +3,13 @@ import reducers, { State } from '../reducers';
 import '../../../../types';
 import '../types';
 import { createLogger } from 'redux-logger';
+import thunk from 'redux-thunk';
+import { Middleware } from 'redux';
 
 declare var module: any;
 
-const configureStore = (initialState: Object): Store<State> => {
-  const middlewares: any[] = [];
+const configureStore = (initialState: State): Store<State> => {
+  const middlewares: Middleware[] = [thunk];
   const enhancers = middlewares.map(a => applyMiddleware(a));
   const logger = createLogger({});
 
@@ -19,7 +21,7 @@ const configureStore = (initialState: Object): Store<State> => {
     }
   }
 
-  const store = createStore(reducers, initialState, compose(...enhancers));
+  const store = createStore(reducers, initialState as any, compose(...enhancers));
 
   if (__DEV__ && module.hot) {
     module.hot.accept('../reducers', () => {
@@ -30,6 +32,6 @@ const configureStore = (initialState: Object): Store<State> => {
   return store;
 };
 
-export default (initialState: Object = {}) => {
+export default (initialState: State) => {
   return configureStore(initialState);
 };

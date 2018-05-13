@@ -6,6 +6,7 @@ import { Layout, GelItem } from '@cutting/react-gel';
 import { Button, Modal } from '@cutting/component-library';
 import { Cake } from '../../components/Cake';
 import { CakeForm } from '../CakeForm';
+import { cakesSelector } from '../../selectors';
 
 const styles = require('./Cakes.scss');
 
@@ -19,7 +20,7 @@ export interface CakesContainerState {
 
 export const mapStateToProps: MapStateToProps<CakesContainerProps, any, State> = (state: State) => {
   return {
-    cakes: state.cakes
+    cakes: cakesSelector(state)
   };
 };
 

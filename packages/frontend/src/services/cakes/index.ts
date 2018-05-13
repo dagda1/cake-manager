@@ -9,3 +9,16 @@ export const getCakes = async (): Promise<CakeProps[]> => {
 
   return await response.json();
 };
+
+export const persistCake = async (cake: CakeProps) => {
+  const body = JSON.stringify(cake);
+
+  await fetch('/cakes', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body
+  });
+};

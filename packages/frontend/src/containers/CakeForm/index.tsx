@@ -6,6 +6,7 @@ import { Button, ButtonStyle } from '@cutting/component-library';
 import { Wrap, Layout, GelItem } from '@cutting/react-gel';
 import { CakeProps } from '../../../../../types';
 import { Dispatch } from 'redux';
+import { AddCake, State, createNewCake } from '../../reducers';
 
 const styles = require('./CakeForm.scss');
 
@@ -38,7 +39,9 @@ export class CakeFormView extends React.Component<Props> {
     this.props.cancelHandler();
   };
 
-  submitForm = (values: CakeProps, dispatch: Dispatch<any>, meta: object) => {};
+  submitForm = (values: CakeProps, dispatch: Dispatch<AddCake, State>, props: Props) => {
+    dispatch(createNewCake(values));
+  };
 
   render() {
     const { handleSubmit } = this.props;

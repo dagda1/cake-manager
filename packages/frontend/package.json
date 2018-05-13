@@ -22,7 +22,7 @@
     "react-router-dom": "^4.2.2",
     "react-universal-component": "^2.9.0",
     "redux": "^4.0.0",
-    "reselect": "^3.0.1",
+    "redux-thunk": "^2.2.0",
     "serialize-javascript": "^1.5.0"
   },
   "devDependencies": {
