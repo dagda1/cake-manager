@@ -17,4 +17,22 @@
   &:hover {
     border-color: $main-color;
   }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .image__container {
+    height: 150px;
+    overflow: hidden;
+    @include mt(2);
+    img {
+      width: 100%;
+      height: auto;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
 }

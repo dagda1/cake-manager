@@ -6,12 +6,14 @@ import { Button, ButtonStyle } from '@cutting/component-library';
 import { Wrap, Layout, GelItem } from '@cutting/react-gel';
 import { CakeProps } from '../../../../../types';
 import { Dispatch } from 'redux';
-import { AddCake, State, createNewCake } from '../../reducers';
+import { State } from '../../reducers/types';
+import { AddCake, createNewCake } from '../../reducers/cakes';
 
 const styles = require('./CakeForm.scss');
 
 export interface CakeFormProps extends CakeProps {
   cancelHandler: () => void;
+  isLoading: boolean;
 }
 
 type Props = CakeFormProps & InjectedFormProps;
@@ -44,7 +46,7 @@ export class CakeFormView extends React.Component<Props> {
   };
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, isLoading } = this.props;
 
     return (
       <Wrap className={styles.container}>
@@ -56,8 +58,8 @@ export class CakeFormView extends React.Component<Props> {
               <Field name="image" component={renderFormInput} label="Image Url" maxLength={500} />
               <div className={styles.button__container}>
                 <Button onClick={this.cancelHandler}>Cancel</Button>
-                <Button type="submit" buttonStyle={ButtonStyle.Primary}>
-                  Add
+                <Button type="submit" buttonStyle={ButtonStyle.Primary} disabled={isLoading}>
+                  {isLoading ? '....Saving' : 'Add'}
                 </Button>
               </div>
             </Form>

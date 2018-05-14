@@ -53,7 +53,13 @@ const app = express();
 // set up proxying for all requests that are not text/html that should meet the requirements
 // for the test
 const filter = (pathname: string, req: http.IncomingMessage) => {
-  return !!(req.headers.accept && req.headers.accept.indexOf('application/json') > -1);
+  const accept = req.headers.accept;
+
+  if (!accept) {
+    return false;
+  }
+
+  return pathname === '/' || accept.indexOf('application/json') > -1;
 };
 
 const apiProxy = proxy(filter, { target: ApiHost, secure: false });

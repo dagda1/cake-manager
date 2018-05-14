@@ -1,10 +1,11 @@
 import { createStore, applyMiddleware, compose, Store } from 'redux';
-import reducers, { State } from '../reducers';
+import { reducers } from '../reducers';
 import '../../../../types';
 import '../types';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import { Middleware } from 'redux';
+import { State, CakeActions } from '../reducers/types';
 
 declare var module: any;
 
@@ -21,7 +22,7 @@ const configureStore = (initialState: State): Store<State> => {
     }
   }
 
-  const store = createStore(reducers, initialState as any, compose(...enhancers));
+  const store = createStore<State, CakeActions, any, any>(reducers, initialState, compose(...enhancers));
 
   if (__DEV__ && module.hot) {
     module.hot.accept('../reducers', () => {

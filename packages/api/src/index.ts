@@ -8,8 +8,12 @@ import { log } from 'winston';
 import { db } from './db';
 import { Router } from './routes';
 import { Port } from './config';
+import * as bodyParser from 'body-parser';
 
 const app = express();
+
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 
 // create routes
 for (const route of Router) {

@@ -1,17 +1,18 @@
 import * as React from 'react';
 import { CakeProps } from '../../../../../types';
 import { MapStateToProps, connect } from 'react-redux';
-import { State } from '../../reducers';
 import { Layout, GelItem } from '@cutting/react-gel';
 import { Button, Modal } from '@cutting/component-library';
 import { Cake } from '../../components/Cake';
 import { CakeForm } from '../CakeForm';
-import { cakesSelector } from '../../selectors';
+import { cakesSelector, isLoadingSelector } from '../../selectors';
+import { State } from '../../reducers/types';
 
 const styles = require('./Cakes.scss');
 
 export interface CakesContainerProps {
   cakes: CakeProps[];
+  isLoading: boolean;
 }
 
 export interface CakesContainerState {
@@ -20,7 +21,8 @@ export interface CakesContainerState {
 
 export const mapStateToProps: MapStateToProps<CakesContainerProps, any, State> = (state: State) => {
   return {
-    cakes: cakesSelector(state)
+    cakes: cakesSelector(state),
+    isLoading: !!isLoadingSelector(state)
   };
 };
 
@@ -33,16 +35,30 @@ export class CakesContainerView extends React.Component<CakesContainerProps, Cak
     };
   }
 
+  static defaultProps = {
+    cakes: []
+  };
+
+  componentDidUpdate(prevProps: CakesContainerProps) {
+    const { isLoading } = this.props;
+
+    if (isLoading === prevProps.isLoading) {
+      return;
+    }
+
+    if (prevProps.isLoading === true && isLoading === false) {
+      this.closeModal();
+    }
+  }
+
   setModalOpenState = (open: boolean) => this.setState({ modalOpen: open });
 
   openModal = () => this.setModalOpenState(true);
 
-  closeModal = () => {
-    this.setModalOpenState(false);
-  };
+  closeModal = () => this.setModalOpenState(false);
 
   render() {
-    const { cakes } = this.props;
+    const { cakes, isLoading } = this.props;
     const { modalOpen } = this.state;
 
     return (
@@ -55,7 +71,7 @@ export class CakesContainerView extends React.Component<CakesContainerProps, Cak
           open={modalOpen}
         >
           <div className={styles.modal__body}>
-            <CakeForm cancelHandler={this.closeModal} />
+            <CakeForm cancelHandler={this.closeModal} isLoading={isLoading} />
           </div>
         </Modal>
         <Layout className={styles.container}>
@@ -63,7 +79,7 @@ export class CakesContainerView extends React.Component<CakesContainerProps, Cak
             <Button onClick={this.openModal}>Add Cake</Button>
           </GelItem>
           {cakes.map((cake, i) => (
-            <GelItem key={i} m="1/2" l="1/4">
+            <GelItem key={i} m="1/2" l="1/3">
               <Cake {...cake} />
             </GelItem>
           ))}

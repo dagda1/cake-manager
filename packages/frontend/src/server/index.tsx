@@ -6,6 +6,7 @@ import { Request, Response } from 'express';
 import { App } from '../containers/App';
 import configureStore from '../store';
 import { getCakes } from '../services/cakes';
+import { State } from '../reducers/types';
 
 const { flushChunkNames } = require('react-universal-component/server');
 
@@ -24,7 +25,7 @@ export default ({ clientStats }: { clientStats: any }) => async (req: Request, r
 
   const cakes = await getCakes();
 
-  const preloadedState = { cakes };
+  const preloadedState: State = { cakes };
 
   const store = configureStore(preloadedState);
 
