@@ -7,6 +7,7 @@ import { Cake } from '../../components/Cake';
 import { CakeForm } from '../CakeForm';
 import { cakesSelector, isLoadingSelector } from '../../selectors';
 import { State } from '../../reducers/types';
+import { createNewCake } from '../../reducers/cakes';
 
 const styles = require('./Cakes.scss');
 
@@ -71,7 +72,7 @@ export class CakesContainerView extends React.Component<CakesContainerProps, Cak
           open={modalOpen}
         >
           <div className={styles.modal__body}>
-            <CakeForm cancelHandler={this.closeModal} isLoading={isLoading} />
+            <CakeForm addCake={createNewCake} cancelHandler={this.closeModal} isLoading={isLoading} />
           </div>
         </Modal>
         <Layout className={styles.container}>

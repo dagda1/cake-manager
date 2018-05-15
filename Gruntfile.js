@@ -15,8 +15,8 @@ module.exports = function(grunt) {
         tasks: ['default']
       },
       test: {
-        src: packages,
-        tasks: ['test:ci']
+        src: packages[1],
+        tasks: ['test']
       },
       start: {
         src: packages,

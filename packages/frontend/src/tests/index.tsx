@@ -21,12 +21,17 @@ export const findElement = <T, U>(wrapper: CommonWrapper<T, U>, name: string) =>
 export const selectElement = <T, U>(wrapper: CommonWrapper<T, U>, name: string) =>
   wrapper.find(`[data-selector="${name}"]`).hostNodes();
 
-export const setInput = (input: CommonWrapper, text: string) => {
+export const setInput = (wrapper: ReactWrapper) => (name: string, text: string) => {
+  const input = findElement(wrapper, name);
   input.simulate('change', { target: { value: text } });
   input.simulate('blur');
 };
 
 export const dummyCakes: CakeProps[] = [{ title: 'title', desc: 'desc', image: 'img' }];
+
+export const findSubmitButton = (wrapper: ReactWrapper) => wrapper.find('button[type="submit"]');
+
+export const clickSubmitButton = (wrapper: ReactWrapper) => findSubmitButton(wrapper).simulate('submit');
 
 const getReducers = () => {
   // don't screw up mocking

@@ -2,7 +2,11 @@
 
 .container {
   button {
-    @include mb(3);
+    @include mq-m {
+      @include mb(3);
+    }
+
+    background-color: $secondary-button-color !important;
   }
 }
 
@@ -25,4 +29,10 @@
   color: $modal-color;
   flex: 1;
   display: flex;
+
+  @include mr(4);
+
+  @include mq-s {
+    margin-right: 0;
+  }
 }

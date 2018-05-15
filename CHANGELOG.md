@@ -64,3 +64,8 @@
 - [09a2891](https://github.com/dagda1/cake-manager/commit/09a289192696a7aab159afd3fabc58e141fc0c35)
 - Add some basic testing, not the full coverage I would normally do
 - Configure app to start api and frontend in root
+
+## [v1.0.0]
+- [1e8a847](https://github.com/dagda1/cake-manager/commit/1e8a847516bfa12d459ed5e2de5158c626a38ee6)
+- Finish tests and update README
+- We are live!!!!!

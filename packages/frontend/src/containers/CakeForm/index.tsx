@@ -7,13 +7,14 @@ import { Wrap, Layout, GelItem } from '@cutting/react-gel';
 import { CakeProps } from '../../../../../types';
 import { Dispatch } from 'redux';
 import { State } from '../../reducers/types';
-import { AddCake, createNewCake } from '../../reducers/cakes';
+import { AddCake } from '../../reducers/cakes';
 
 const styles = require('./CakeForm.scss');
 
 export interface CakeFormProps extends CakeProps {
   cancelHandler: () => void;
   isLoading: boolean;
+  addCake: (cake: CakeProps) => AddCake;
 }
 
 type Props = CakeFormProps & InjectedFormProps;
@@ -41,8 +42,8 @@ export class CakeFormView extends React.Component<Props> {
     this.props.cancelHandler();
   };
 
-  submitForm = (values: CakeProps, dispatch: Dispatch<AddCake, State>, props: Props) => {
-    dispatch(createNewCake(values));
+  submitForm = (values: CakeProps, dispatch: Dispatch<AddCake, State>, { addCake }: Props) => {
+    dispatch(addCake(values));
   };
 
   render() {

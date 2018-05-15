@@ -6,3 +6,8 @@ export const cakesSelector = (state: State) => state.cakes;
 export const uiSelector = (state: State) => state.ui;
 
 export const isLoadingSelector = createSelector(uiSelector, (ui: UiState) => ui.isLoading);
+
+export default {
+  cakesSelector,
+  isLoadingSelector
+};
