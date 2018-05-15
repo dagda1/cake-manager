@@ -49,10 +49,7 @@ const initialState: CakesState = {
 };
 
 export const cakesReducer = reducerBuilder(initialState).build({
-  [ActionTypes.SetCakes]: (state: any, action: SetCakes) => ({
-    ...state,
-    cakes: action.payload.cakes
-  }),
+  [ActionTypes.SetCakes]: (state: any, action: SetCakes) => action.payload.cakes,
 
   [ActionTypes.AddCake]: (state: any, action: AddCake) => [action.payload.cake, ...state]
 });

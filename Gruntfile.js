@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         tasks: ['test:ci']
       },
       start: {
-        src: ['packages/api/Gruntfile.js'],
+        src: packages,
         tasks: ['start']
       }
     }
@@ -28,8 +28,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-hub');
 
   grunt.registerTask('build', ['hub:build']);
-  grunt.registerTask('build:ci', ['hub:build', 'hub:start']);
   grunt.registerTask('watch', ['hub:watch']);
   grunt.registerTask('test', ['hub:test']);
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('start', ['hub:start']);
+  grunt.registerTask('default', ['start']);
 };

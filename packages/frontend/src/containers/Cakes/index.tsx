@@ -76,7 +76,9 @@ export class CakesContainerView extends React.Component<CakesContainerProps, Cak
         </Modal>
         <Layout className={styles.container}>
           <GelItem>
-            <Button onClick={this.openModal}>Add Cake</Button>
+            <Button data-selector="modal-button" onClick={this.openModal}>
+              Add Cake
+            </Button>
           </GelItem>
           {cakes.map((cake, i) => (
             <GelItem key={i} m="1/2" l="1/3">

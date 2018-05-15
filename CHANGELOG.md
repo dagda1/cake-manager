@@ -49,12 +49,18 @@
 - [04f4f9b](https://github.com/dagda1/cake-manager/commit/04f4f9bb2cba84a6b3e1f7a94aed0d340f039c11)
 - install and configure http-proxy-middleware to proxy all non text/html requests to the api
 
-## [v1.0.0]
+## [v0.10.0]
 - [ed9481c](https://github.com/dagda1/cake-manager/commit/ed9481c39e34dcffbc3083ed871d7a74d8fae2c0)
 -  Return text response from `/` url.  I am presuming what the first requirement is about when it states 
 -  > must be presented in an acceptable format for a human to read
 -  The requirements are ambiguous and open to interpretation but this is my understanding
+-  Also I am assuming that `A human must be possible for a human to add a new cake to the server` it means a form.
 -  Add new `/cakes` POST end point.
 -  Hook up the redux-form with the api and call it from the form
 -  Configure proxy to redirect `/` and `Accept: application/json` request to `/cakes` redirects to api
 -  Style cake component
+
+## [v0.11.0]
+- [09a2891](https://github.com/dagda1/cake-manager/commit/09a289192696a7aab159afd3fabc58e141fc0c35)
+- Add some basic testing, not the full coverage I would normally do
+- Configure app to start api and frontend in root

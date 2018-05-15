@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const path = require('path');
 const { merge } = require('lodash');
 const readdirSync = require('fs').readdirSync;
+const testConfig = require('../../tasks/test').config;
 
 const nodeExternals = readdirSync(path.join(__dirname, '../../node_modules'))
   .filter(x => !/\.bin|react-universal-component|require-universal-module|webpack-flush-chunks/.test(x))
@@ -25,6 +26,8 @@ module.exports = grunt => {
     requireResolution: true
   });
 
+  grunt.loadTasks('../../tasks');
+
   grunt.initConfig({
     env: {
       dev: {
@@ -34,6 +37,7 @@ module.exports = grunt => {
         NODE_ENV: 'production'
       }
     },
+    test: testConfig,
     nodemon: {
       dev: {
         script: './dist/index.js',

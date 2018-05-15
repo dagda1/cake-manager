@@ -7,7 +7,7 @@ const styles = require('./Cake.scss');
 export const Cake: React.SFC<CakeProps> = ({ title, desc, image }: CakeProps) => (
   <div className={styles.container}>
     <Heading level={3}>{title}</Heading>
-    <div>{desc}</div>
+    <div data-selector="description">{desc}</div>
     <div className={styles.image__container}>
       <img src={image} alt={desc} />
     </div>
