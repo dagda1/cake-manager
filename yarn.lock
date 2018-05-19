@@ -16,22 +16,22 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@cutting/component-library@0.8.0":
-  version "0.8.0"
-  resolved "https://registry.npmjs.org/@cutting/component-library/-/component-library-0.8.0.tgz#048bbd64e335c425c84841f8c22d3a74901ca16d"
+"@cutting/component-library@0.12.0":
+  version "0.12.0"
+  resolved "https://registry.npmjs.org/@cutting/component-library/-/component-library-0.12.0.tgz#62ec237216b5957f67b9382e59395e085f761222"
   dependencies:
-    "@cutting/react-gel" "0.1.0"
+    "@cutting/react-gel" "^0.3.0"
 
-"@cutting/connected-components@0.8.0":
-  version "0.8.0"
-  resolved "https://registry.npmjs.org/@cutting/connected-components/-/connected-components-0.8.0.tgz#fff986540c530086f164486651c7cbeb5862d329"
+"@cutting/connected-components@0.12.0":
+  version "0.12.0"
+  resolved "https://registry.npmjs.org/@cutting/connected-components/-/connected-components-0.12.0.tgz#3d67b881bbc75021159f451b893d81b65dcb1eb0"
   dependencies:
-    "@cutting/component-library" "0.8.0"
+    "@cutting/component-library" "0.12.0"
     redux-form "^7.3.0"
 
-"@cutting/react-gel@0.1.0", "@cutting/react-gel@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.npmjs.org/@cutting/react-gel/-/react-gel-0.1.0.tgz#d111e2d1bce85227e77a829827de00c6462db9bc"
+"@cutting/react-gel@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.npmjs.org/@cutting/react-gel/-/react-gel-0.3.0.tgz#cfd6b275089f32c45b1d202e225589753608206a"
 
 "@cutting/util@^0.1.0":
   version "0.1.0"

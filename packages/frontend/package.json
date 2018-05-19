@@ -11,9 +11,9 @@
     "test": "NODE_ENV=test grunt test:dev"
   },
   "dependencies": {
-    "@cutting/component-library": "0.8.0",
-    "@cutting/connected-components": "0.8.0",
-    "@cutting/react-gel": "^0.1.0",
+    "@cutting/component-library": "0.12.0",
+    "@cutting/connected-components": "0.12.0",
+    "@cutting/react-gel": "^0.3.0",
     "@cutting/util": "^0.1.0",
     "@types/reselect": "^2.2.0",
     "classnames": "^2.2.5",

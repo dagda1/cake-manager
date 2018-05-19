@@ -26,22 +26,6 @@ $form-element-height: 42px;
     @include mr(2);
     border: 1px solid $error-red;
   }
-
-  input[type='text'],
-  input[type='number'],
-  input[type='password'] {
-    @include form-control;
-  }
-
-  label {
-    @include mb(1);
-    display: block;
-    color: $label-default-color !important;
-
-    @include mq-m {
-      @include mq(2);
-    }
-  }
 }
 
 .button__container {
